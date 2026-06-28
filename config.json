@@ -1,0 +1,24 @@
+{
+  "apiKey": "PXPYjRezXDbulKEJrfqFnUrcPdL6xauc",
+  "interval": 900,
+  "image": "cloreai/ubuntu20.04-jupyter",
+  "sshPassword": "123456",
+  "watchOwners": [
+    { "owner": 46110, "server": 98044, "maxPrice": 7.9 },
+    { "owner": 1143, "server": 70665, "maxPrice": 7.9 },
+    { "owner": 10763, "server": 81721, "maxPrice": 2.65 },
+    { "owner": 14527, "server": 75966, "maxPrice": 4.67 },
+    { "owner": 14527, "server": 75966, "maxPrice": 0 },
+    { "owner": 38859, "server": 91729, "maxPrice": 0.4 },
+    { "owner": 38859, "server": 91857, "maxPrice": 0.4 },
+    { "owner": 38859, "server": 92061, "maxPrice": 0.42 },
+    { "owner": 49284, "server": 102958, "maxPrice": 0.65 },
+    { "owner": 41660, "server": 91933, "maxPrice": 1.1 },
+    { "owner": 41970, "server": 92397, "maxPrice": 0.6 },
+    { "owner": 37576, "server": 94240, "maxPrice": 0.5 },
+    { "owner": 41660, "server": 91933, "maxPrice": 1.1 },
+    { "owner": 38859, "server": 91729, "maxPrice": 0.4 },
+    { "owner": 23549, "server": 92883, "maxPrice": 4.45 }
+
+  ]
+}
