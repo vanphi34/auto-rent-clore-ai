@@ -1,0 +1,99 @@
+{
+  "apiKey": "",
+  "scanApiKey": "",
+  "rentApiKey": "",
+  "interval": 900,
+  "image": "cloreai/jupyter:ubuntu24.04-v2",
+  "sshPassword": "123456",
+
+  "commands": {
+    "pearl": {
+      "description": "pearl linux",
+      "command": "#!/bin/bash\n\nexec > >(tee -a /root/autorent.log)\nexec 2>&1\n\nset -e\n\nexport DEBIAN_FRONTEND=noninteractive\n\necho \"===== START $(date) =====\"\n\napt-get update -y\napt-get install -y wget tar screen ca-certificates\n\ncd /root\n\nwget -O wildrig.tar.gz https://github.com/andru-kun/wildrig-multi/releases/download/0.49.2/wildrig-multi-linux-0.49.2.tar.gz\n\nmkdir -p wildrig\ntar -xzf wildrig.tar.gz -C wildrig\nchmod +x /root/wildrig/wildrig-multi\n\ncat >/root/wildrig/run.sh <<'EOF'\n#!/bin/bash\n\ncd /root/wildrig\n\n./wildrig-multi \\\n  --algo pearlhash \\\n  --url stratum+tcp://pool.pearlhash.xyz:9000 \\\n  --user prl1px59q5kxksa2vtnq56xfgyhr6c7ke3n2q52dg9xzfd7pjcf2mwayqyzluh4.SERVER_ID \\\n  --pass x\nEOF\n\nchmod +x /root/wildrig/run.sh\n\nscreen -S pearl -X quit >/dev/null 2>&1 || true\nscreen -dmS pearl bash -c \"/root/wildrig/run.sh; echo EXIT_CODE=\\$?; sleep 600\"\n\necho \"===== FINISHED =====\""
+    },
+    "pearl1": {
+      "description": "pearl linux 1",
+      "command": "echo 'pearl linux 1'"
+    }
+  },
+
+  "watchOwners": [
+    {
+      "owner": 6708,
+      "server": 13518,
+      "maxPrice": 3.35,
+      "info": "4x RTX 4070 SUPER 0.83",
+      "command": "pearl"
+    },
+    {
+      "owner": 6708,
+      "server": 44602,
+      "maxPrice": 3.35,
+      "info": "4x RTX 4070 SUPER 0.83",
+      "command": "pearl"
+    },
+    {
+      "owner": 6900,
+      "server": 44705,
+      "maxPrice": 3.75,
+      "info": "5x RTX 4070 0.75",
+      "command": "pearl"
+    },
+    {
+      "owner": 6900,
+      "server": 17924,
+      "maxPrice": 3,
+      "info": "4x RTX 4070 0.75",
+      "command": "pearl"
+    },
+    {
+      "owner": 6708,
+      "server": 45377,
+      "maxPrice": 3.1,
+      "info": "4x RTX 4070 0.76",
+      "command": "pearl"
+    },
+    {
+      "owner": 6708,
+      "server": 44582,
+      "maxPrice": 3.8,
+      "info": "5x RTX 4070 0.76",
+      "command": "pearl"
+    },
+    {
+      "owner": 6708,
+      "server": 18539,
+      "maxPrice": 3.1,
+      "info": "4x RTX 4070 0.76",
+      "command": "pearl"
+    },
+    {
+      "owner": 38859,
+      "server": 91729,
+      "maxPrice": 0.4,
+      "info": "1x 5060ti 0.37",
+      "command": "pearl"
+    },
+    {
+      "owner": 38859,
+      "server": 92061,
+      "maxPrice": 0.4,
+      "info": "1x 5060ti 0.4",
+      "command": "pearl"
+    },
+    {
+      "owner": 41970,
+      "server": 92397,
+      "maxPrice": 0.6,
+      "info": "3x 3070 0.2",
+      "command": "pearl"
+    },
+    {
+      "owner": 22403,
+      "server": 35115,
+      "maxPrice": 1,
+      "info": "4x 3070 laptop 0.25 115w",
+      "command": "pearl"
+    }
+  ]
+}
