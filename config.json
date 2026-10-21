@@ -9,7 +9,7 @@
   "commands": {
     "pearl": {
       "description": "pearl linux",
-      "command": "#!/bin/bash\n\nexec > >(tee -a /root/autorent.log)\nexec 2>&1\n\nset -e\n\nexport DEBIAN_FRONTEND=noninteractive\n\necho \"===== START $(date) =====\"\n\napt-get update -y\napt-get install -y wget tar screen ca-certificates\n\ncd /root\n\nwget -O wildrig.tar.gz https://github.com/andru-kun/wildrig-multi/releases/download/0.49.2/wildrig-multi-linux-0.49.2.tar.gz\n\nmkdir -p wildrig\ntar -xzf wildrig.tar.gz -C wildrig\nchmod +x /root/wildrig/wildrig-multi\n\ncat >/root/wildrig/run.sh <<'EOF'\n#!/bin/bash\n\ncd /root/wildrig\n\n./wildrig-multi \\\n  --algo pearlhash \\\n  --url stratum+tcp://pool.pearlhash.xyz:9000 \\\n  --user prl1px59q5kxksa2vtnq56xfgyhr6c7ke3n2q52dg9xzfd7pjcf2mwayqyzluh4.SERVER_ID \\\n  --pass x\nEOF\n\nchmod +x /root/wildrig/run.sh\n\nscreen -S pearl -X quit >/dev/null 2>&1 || true\nscreen -dmS pearl bash -c \"/root/wildrig/run.sh; echo EXIT_CODE=\\$?; sleep 600\"\n\necho \"===== FINISHED =====\""
+      "command": "#!/bin/bash\n\nexec > >(tee -a /root/autorent.log)\nexec 2>&1\n\nset -e\n\nexport DEBIAN_FRONTEND=noninteractive\n\necho \"===== START $(date) =====\"\n\napt-get update -y\napt-get install -y wget tar screen ca-certificates\n\ncd /root\n\nwget -O wildrig.tar.gz https://github.com/andru-kun/wildrig-multi/releases/download/0.51.5/wildrig-multi-linux-0.51.5.tar.gz\n\nmkdir -p wildrig\ntar -xzf wildrig.tar.gz -C wildrig\nchmod +x /root/wildrig/wildrig-multi\n\ncat >/root/wildrig/run.sh <<'EOF'\n#!/bin/bash\n\ncd /root/wildrig\n\n./wildrig-multi \\\n  --algo pearlhash \\\n  --url stratum+tcp://pool.pearlhash.xyz:9000 \\\n  --user prl1px59q5kxksa2vtnq56xfgyhr6c7ke3n2q52dg9xzfd7pjcf2mwayqyzluh4.SERVER_ID \\\n  --pass x\nEOF\n\nchmod +x /root/wildrig/run.sh\n\nscreen -S pearl -X quit >/dev/null 2>&1 || true\nscreen -dmS pearl bash -c \"/root/wildrig/run.sh; echo EXIT_CODE=\\$?; sleep 600\"\n\necho \"===== FINISHED =====\""
     },
     "pearl1": {
       "description": "pearl linux 1",
@@ -106,5 +106,54 @@
       "info": "2x 3060",
       "command": "quan"
     },
+    {
+      "owner": 39504  ,
+      "server": 114418,
+      "maxPrice": 3.2,
+      "info": "2x 3060",
+      "command": "quan"
+    },
+    {
+      "owner": 39319  ,
+      "server": 95271,
+      "maxPrice": 8.5,
+      "info": "2x 3060",
+      "command": "quan"
+    },
+    {
+      "owner": 20002  ,
+      "server": 114378,
+      "maxPrice": 7.4,
+      "info": "1x 4090",
+      "command": "prl"
+    },
+    {
+      "owner": 51841  ,
+      "server": 118192,
+      "maxPrice": 4.8,
+      "info": "1x 4080",
+      "command": "prl"
+    },
+    {
+      "owner": 39504  ,
+      "server": 114418,
+      "maxPrice": 3.3,
+      "info": "1x 4080",
+      "command": "prl"
+    },
+    {
+      "owner": 35937  ,
+      "server": 83012,
+      "maxPrice": 2.2,
+      "info": "1x 4080",
+      "command": "prl"
+    },
+    {
+      "owner": 59901  ,
+      "server": 119695,
+      "maxPrice": 2.2,
+      "info": "1x 4080",
+      "command": "prl"
+    }
   ]
 }
