@@ -1,10 +1,10 @@
 {
-  "apiKey": "",
-  "scanApiKey": "",
-  "rentApiKey": "",
+  "apiKey": "WQGJaw0C_Oe.9QSnCw7XwXJU8VVb..Ix",
+  "scanApiKey": "HaFVpa8pxL3.86cV5BG-e22Gfm9dmwUL",
+  "rentApiKey": "_b.mQLbRdqN7NRkw.1AxK73OL2TAgjzD",
   "interval": 900,
   "image": "cloreai/jupyter:ubuntu24.04-v2",
-  "sshPassword": "123456",
+  "sshPassword": "123123",
 
   "commands": {
     "pearl": {
@@ -14,86 +14,97 @@
     "pearl1": {
       "description": "pearl linux 1",
       "command": "echo 'pearl linux 1'"
-    }
+    },
+    "quan": {
+  "description": "quan linux 1",
+  "command": "#!/bin/bash\n\nexec > >(tee -a /root/autorent.log)\nexec 2>&1\n\nset -e\n\nexport DEBIAN_FRONTEND=noninteractive\n\necho '===== START '$(date)' ====='\n\napt-get update -y\napt-get install -y wget screen ca-certificates\n\nmkdir -p ~/quantus && cd ~/quantus\nwget -O quanpool-miner-6.4.0 https://download.quanpool.com/quanpool-miner-6.4.0-linux-x86_64\necho 'b3663cc6e7acc0a006e5d3d8c03dbce85e7c6a67cb922412a32703c18a5c4c20  quanpool-miner-6.4.0' | sha256sum -c\nchmod u+x quanpool-miner-6.4.0\n\n./quanpool-miner-6.4.0 serve --node-addr stratum+ssl://global.quanpool.com:9855 --auth-token qzmq1DSuKJdzodCs6LboBDx966iDuPkYoYo5CLt5ctmRoj9c7.SERVER_ID\n\necho '===== FINISHED ====='"
+}
   },
 
   "watchOwners": [
     {
-      "owner": 6708,
-      "server": 13518,
-      "maxPrice": 3.35,
-      "info": "4x RTX 4070 SUPER 0.83",
-      "command": "pearl"
+      "owner": 41970,
+      "server": 92397,
+      "maxPrice": 0.7,
+      "info": "3x 3070",
+      "command": "quan"
     },
     {
-      "owner": 6708,
-      "server": 44602,
-      "maxPrice": 3.35,
-      "info": "4x RTX 4070 SUPER 0.83",
-      "command": "pearl"
+      "owner": 35171,
+      "server": 118094,
+      "maxPrice": 5.3,
+      "info": "10x 3070",
+      "command": "quan"
     },
     {
-      "owner": 6900,
-      "server": 44705,
-      "maxPrice": 3.75,
-      "info": "5x RTX 4070 0.75",
-      "command": "pearl"
+      "owner": 39480,
+      "server": 114728,
+      "maxPrice": 0.8,
+      "info": "1x 3070",
+      "command": "quan"
     },
     {
-      "owner": 6900,
-      "server": 17924,
+      "owner": 39019,
+      "server": 105731,
+      "maxPrice": 0.8,
+      "info": "1x 2080",
+      "command": "quan"
+    },
+    {
+      "owner": 45887,
+      "server": 100635,
       "maxPrice": 3,
-      "info": "4x RTX 4070 0.75",
-      "command": "pearl"
+      "info": "1x 3090",
+      "command": "quan"
     },
     {
-      "owner": 6708,
-      "server": 45377,
-      "maxPrice": 3.1,
-      "info": "4x RTX 4070 0.76",
-      "command": "pearl"
+      "owner": 40890,
+      "server": 90889,
+      "maxPrice": 5.3,
+      "info": "1x 3070 2x 3080",
+      "command": "quan"
     },
     {
-      "owner": 6708,
-      "server": 44582,
-      "maxPrice": 3.8,
-      "info": "5x RTX 4070 0.76",
-      "command": "pearl"
-    },
-    {
-      "owner": 6708,
-      "server": 18539,
-      "maxPrice": 3.1,
-      "info": "4x RTX 4070 0.76",
-      "command": "pearl"
+      "owner": 24806,
+      "server": 85809,
+      "maxPrice": 6.4,
+      "info": "2x 4070",
+      "command": "quan"
     },
     {
       "owner": 38859,
-      "server": 91729,
+      "server": 91857,
       "maxPrice": 0.4,
-      "info": "1x 5060ti 0.37",
-      "command": "pearl"
+      "info": "1x 5060ti",
+      "command": "quan"
     },
     {
       "owner": 38859,
       "server": 92061,
       "maxPrice": 0.4,
-      "info": "1x 5060ti 0.4",
-      "command": "pearl"
+      "info": "1x 5060ti",
+      "command": "quan"
     },
     {
-      "owner": 41970,
-      "server": 92397,
-      "maxPrice": 0.6,
-      "info": "3x 3070 0.2",
-      "command": "pearl"
+      "owner": 39504,
+      "server": 114791,
+      "maxPrice": 3.2,
+      "info": "7x mix 3060 3070",
+      "command": "quan"
     },
-    {
-      "owner": 22403,
-      "server": 35115,
-      "maxPrice": 1,
-      "info": "4x 3070 laptop 0.25 115w",
-      "command": "pearl"
-    }
+     {
+      "owner": 46172  ,
+      "server": 98188,
+      "maxPrice": 3.6,
+      "info": "8x 3060",
+      "command": "quan"
+    },
+     {
+      "owner": 54986  ,
+      "server": 109465,
+      "maxPrice": 1.3,
+      "info": "2x 3060",
+      "command": "quan"
+    },
   ]
 }

@@ -156,7 +156,7 @@ async function main() {
         }
         if (fulfilled.size === config.watchOwners.length) {
           console.log('ALL DONE — đã thuê đủ tất cả server');
-          process.exit(0);
+          // process.exit(0);
         }
       } else {
         const server = matched[0];
